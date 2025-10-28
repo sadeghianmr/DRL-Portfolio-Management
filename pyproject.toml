@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crypto_portfolio"
+version = "0.1.0"
+description = "A project to track and model crypto portfolio data."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+# Updated dependencies:
+dependencies = [
+    "requests",         # For API calls
+    "psycopg[binary]",  # PostgreSQL driver
+    "pandas",           # For data manipulation
+    "polars",           # A faster alternative to pandas, great for time-series
+    "python-dotenv",    # To load .env files
+    "pydantic-settings",# For validating config
+    "scikit-learn",     # For basic modeling
+    "torch",            # For deep learning (PyTorch)
+    "numpy",            # Fundamental package for scientific computing
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ipykernel",        # For Jupyter notebooks
+    "black",            # For code formatting
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]  # <-- This tells setuptools to find the package in src/
